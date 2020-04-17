@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3563244-ae73-4442-935b-48f3b9d614e8" name="Default Changelist" comment="" />
+    <list default="true" id="b3563244-ae73-4442-935b-48f3b9d614e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Group6_WebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Group6_WebApp/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +60,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../Group6_WebApp" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -87,7 +90,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Group6_WebApp/app/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -357,62 +360,57 @@
       <workItem from="1586706761645" duration="21668000" />
       <workItem from="1586978266038" duration="4806000" />
       <workItem from="1586985203685" duration="853000" />
-      <workItem from="1586994081196" duration="35440000" />
+      <workItem from="1586994081196" duration="36677000" />
     </task>
+    <task id="LOCAL-00001" summary="commit webapp">
+      <created>1587085926426</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587085926426</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit webapp">
+      <created>1587086151551</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587086151551</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit webapp" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit webapp" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="581" y="185" key="FileChooserDialogImpl" timestamp="1586978983108">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="581" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1586978983108" />
-    <state width="1558" height="134" key="GridCell.Tab.0.bottom" timestamp="1586986060653">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="134" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1586986060653" />
-    <state width="1558" height="134" key="GridCell.Tab.0.center" timestamp="1586986060653">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="134" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1586986060653" />
-    <state width="1558" height="134" key="GridCell.Tab.0.left" timestamp="1586986060653">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="134" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1586986060653" />
-    <state width="1558" height="134" key="GridCell.Tab.0.right" timestamp="1586986060653">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="134" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1586986060653" />
-    <state width="1558" height="276" key="GridCell.Tab.1.bottom" timestamp="1586985172261">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1586985172261" />
-    <state width="1558" height="276" key="GridCell.Tab.1.center" timestamp="1586985172261">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1586985172261" />
-    <state width="1558" height="276" key="GridCell.Tab.1.left" timestamp="1586985172260">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1586985172260" />
-    <state width="1558" height="276" key="GridCell.Tab.1.right" timestamp="1586985172261">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1558" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1586985172261" />
-    <state x="764" y="168" key="IDE.errors.dialog" timestamp="1586700584764">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="764" y="168" key="IDE.errors.dialog/0.0.1600.860@0.0.1600.860" timestamp="1586700584764" />
-    <state x="327" y="16" key="SettingsEditor" timestamp="1586697982904">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="327" y="16" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1586697982904" />
-    <state x="510" y="71" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1586724499916">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="510" y="71" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1600.860@0.0.1600.860" timestamp="1586724499916" />
+    <state x="581" y="185" key="FileChooserDialogImpl" />
+    <state x="581" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="134" key="GridCell.Tab.0.bottom" />
+    <state width="1558" height="134" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="134" key="GridCell.Tab.0.center" />
+    <state width="1558" height="134" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="134" key="GridCell.Tab.0.left" />
+    <state width="1558" height="134" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="134" key="GridCell.Tab.0.right" />
+    <state width="1558" height="134" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="276" key="GridCell.Tab.1.bottom" />
+    <state width="1558" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="276" key="GridCell.Tab.1.center" />
+    <state width="1558" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="276" key="GridCell.Tab.1.left" />
+    <state width="1558" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" />
+    <state width="1558" height="276" key="GridCell.Tab.1.right" />
+    <state width="1558" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" />
+    <state x="764" y="168" key="IDE.errors.dialog" />
+    <state x="764" y="168" key="IDE.errors.dialog/0.0.1600.860@0.0.1600.860" />
+    <state x="327" y="16" key="SettingsEditor" />
+    <state x="327" y="16" key="SettingsEditor/0.0.1600.860@0.0.1600.860" />
+    <state x="510" y="71" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" />
+    <state x="510" y="71" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1600.860@0.0.1600.860" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Group5_Team$Unittests_in_test_signup_py.coverage" NAME="Unittests in test_signup.py Coverage Results" MODIFIED="1587077466035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/auth" />
