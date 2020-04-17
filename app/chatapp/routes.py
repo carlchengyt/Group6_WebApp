@@ -2,7 +2,7 @@ from flask import session, redirect, url_for, render_template, request, make_res
 from . import bp_chatapp
 from .forms import LoginForm
 from flask_login import current_user
-from app.models import Priority, Project, Team, Userstory, User, TeamUserLink
+from app.models import  Project, Team, Userstory, User, TeamUserLink
 
 @bp_chatapp.route('/room', methods=['GET', 'POST'])
 def room():

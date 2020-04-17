@@ -2,7 +2,7 @@ from flask import render_template, Blueprint, request, make_response, url_for, r
 
 
 from app import db
-from app.models import Comment, Priority, Project, Team, Userstory, User, TeamUserLink
+from app.models import Comment, Project, Team, Userstory, User, TeamUserLink
 
 bp_main = Blueprint('main', __name__)
 

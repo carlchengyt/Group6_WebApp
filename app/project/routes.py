@@ -8,7 +8,7 @@ from wtforms import ValidationError
 from app.project.forms import ProjectForm, SearchForm
 
 from app import db
-from app.models import Comment, Priority, Project, Team, Userstory, User, TeamUserLink
+from app.models import Comment, Project, Team, Userstory, User, TeamUserLink
 
 bp_project = Blueprint('project', __name__)
 

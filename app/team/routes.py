@@ -5,7 +5,7 @@ from flask_login import current_user
 from app.team.forms import TeamForm
 
 from app import db
-from app.models import Priority, Project, Team, Userstory, User, TeamUserLink
+from app.models import Project, Team, Userstory, User, TeamUserLink
 
 bp_team = Blueprint('team', __name__)
 

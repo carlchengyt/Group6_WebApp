@@ -77,11 +77,11 @@ def userstory_creation():
                 response = make_response(redirect(url_for('userstory.userstory_base')))
                 return response
             else:
-                flash('Invalid deadline, please check it')
+                flash('Invalid deadline, Please pick dates in the future')
                 return redirect(url_for('userstory.userstory_creation'))
 
         else:
-            flash('Too short userstory content, please check it')
+            flash('Too short userstory content, Minimum 20 characters')
             return redirect(url_for('userstory.userstory_creation'))
 
     return render_template('userstory_creation.html', form=form, projects=projects)
@@ -123,10 +123,10 @@ def userstory_edition(userstory_id):
                 response = make_response(redirect(url_for('userstory.userstory_base')))
                 return response
             else:
-                flash('Invalid deadline, please check it')
+                flash('Invalid deadline, Please pick dates in the future')
                 return redirect(url_for('userstory.userstory_edition', userstory_id=userstory_id))
         else:
-            flash('Too short userstory content, please check it')
+            flash('Too short userstory content, Minimum 20 characters')
             return redirect(url_for('userstory.userstory_edition', userstory_id=userstory_id))
 
     return render_template('userstory_edition.html', form=form, current_userstory=current_userstory, projects=projects)

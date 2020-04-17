@@ -30,9 +30,6 @@ class Comment(db.Model):
     __table_args__ = {'extend_existing': True}
     comment_id = db.Column(db.Integer, primary_key=True)
 
-class Priority(db.Model):
-    _table_ = db.Model.metadata.tables['priority']
-
 
 class Project(db.Model):
     _table_ = db.Model.metadata.tables['project']
