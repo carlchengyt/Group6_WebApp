@@ -30,9 +30,9 @@
             <div class="col-2">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="{{ url_for('project.create_project') }}" type="button"
+                        <a href=" 'project.create_project') }}" type="button"
                            class="btn btn-primary btn-lg btn-block"><strong>Create a New Project</strong>
-                        </a><br>
+                        </a ><br>
                     </li>
                 </ul>
             </div>
@@ -51,20 +51,20 @@
                     </tr>
                     {% for userstory in links %}
                         <tr>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.userstory_id }}</a></td>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.content }}</a></td>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.creation_date }}</a></td>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.deadline }}</a></td>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.priority_level }}</a></td>
-                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.team_name }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.userstory_id }}</a ></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.content }}</a ></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.creation_date }}</a ></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.deadline }}</a ></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.priority_level }}</a ></td>
+                            <td><a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">{{ userstory.team_name }}</a ></td>
                         </tr>
                     {% endfor %}
                     </thead>
                 </table>
                 <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
-                   class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a>
+                   class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a >
                 <a href="{{ url_for('project.delete_project', project=current_project.project_id) }}" type="button"
-                   class="btn btn-primary btn-lg btn-block"><strong>Delete Project</strong></a>
+                   class="btn btn-primary btn-lg btn-block"><strong>Delete Project</strong></a >
             </div>
         </div>
     </div>
