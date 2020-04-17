@@ -1,0 +1,22 @@
+{% extends "userstory_base.html" %}
+{% block title %} Userstory Creation {% endblock %}
+
+{% block userstory_base_content %}
+    {% from "_formhelpers.html" import render_field %}
+    <div class="col-8">
+        <h1>Creating a New Userstory</h1>
+        <form method=post novalidate>
+                    <dl>
+                        {{ render_field(form.content, class='form-control') }}
+                        {{ render_field(form.priority, class='form-control') }}
+                        {{ render_field(form.deadline, class='form-control') }}
+                        {{ render_field(form.project, class='form-control') }}
+                        {{ render_field(form.team, class='form-control') }}
+                    </dl>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+    </div>
+    <div class="col-2">
+    </div>
+
+{% endblock %}

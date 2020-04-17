@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card" style="width: 30vw;">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+        <form method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <dl>
+                {{ render_field(form.email, id="inputEmail", class='form-control') }}
+                {{ render_field(form.password, class='form-control') }}
+                {{ render_field(form.remember_me) }}
+                <input type=submit value='Login' class='btn btn-primary'>
+                <a class="nav-item nav-link" href="{{ url_for('auth.signup') }}">Not have an account? Press here to register.</a>
+            </dl>
+        </form>
+    </div>
+</div>
+{% endblock %}

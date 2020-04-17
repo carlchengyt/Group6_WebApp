@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Group5.sqlite">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.16">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="comment"/>
+    <table id="7" parent="2" name="priority"/>
+    <table id="8" parent="2" name="project"/>
+    <table id="9" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="10" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="11" parent="2" name="team"/>
+    <table id="12" parent="2" name="team_user"/>
+    <table id="13" parent="2" name="team_user_link"/>
+    <table id="14" parent="2" name="user"/>
+    <table id="15" parent="2" name="userstory"/>
+    <column id="16" parent="6" name="comment_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="17" parent="6" name="content">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="6" name="receiver">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="6" name="centent">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="6" name="sender">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="21" parent="6" name="comment_comment_id_uindex">
+      <ColNames>comment_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="6" name="comment_pk">
+      <ColNames>comment_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>comment_comment_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="23" parent="6" name="receiver">
+      <ColNames>receiver</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>user_pk</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="24" parent="6">
+      <ColNames>sender</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>user_pk</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="25" parent="7" name="priority_num">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="26" parent="7" name="priority_level">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;NORMAL&apos;</DefaultExpression>
+    </column>
+    <key id="27" parent="7" name="priority_pk">
+      <ColNames>priority_num</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="8" name="project_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="29" parent="8" name="name">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="30" parent="8" name="description">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="31" parent="8" name="project_project_id_uindex">
+      <ColNames>project_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="32" parent="8" name="project_pk">
+      <ColNames>project_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>project_project_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="33" parent="9" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="34" parent="9" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="35" parent="9" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="36" parent="9" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="37" parent="9" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="38" parent="10" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="39" parent="10" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="40" parent="11" name="team_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="41" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="leader_user_id">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="11" name="team_team_id_uindex">
+      <ColNames>team_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="11" name="team_pk">
+      <ColNames>team_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>team_team_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="45" parent="12" name="team_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="user_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="12" name="sqlite_autoindex_team_user_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>team_id
+user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="12" name="team_user_pk">
+      <ColNames>team_id
+user_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_team_user_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="49" parent="12">
+      <ColNames>team_id</ColNames>
+      <RefTableName>team</RefTableName>
+      <RefKeyName>team_pk</RefKeyName>
+      <RefColNames>team_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="12">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>user_pk</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="51" parent="13" name="link_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="52" parent="13" name="team_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="53" parent="13" name="user_id">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="54" parent="13" name="team_user_link_link_id_uindex">
+      <ColNames>link_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="13" name="team_user_link_pk">
+      <ColNames>link_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>team_user_link_link_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="56" parent="13">
+      <ColNames>team_id</ColNames>
+      <RefTableName>team</RefTableName>
+      <RefKeyName>team_pk</RefKeyName>
+      <RefColNames>team_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="13">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>user_pk</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="58" parent="14" name="user_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="59" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="60" parent="14" name="password">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="61" parent="14" name="info">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <DefaultExpression>&apos;a person&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="14" name="email">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="63" parent="14" name="user_user_id_uindex">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="64" parent="14" name="user_email_uindex">
+      <ColNames>email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="65" parent="14" name="user_pk">
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>user_user_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="66" parent="15" name="userstory_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="67" parent="15" name="project_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="15" name="content">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="69" parent="15" name="priority_num">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="15" name="creation_date">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="15" name="deadline">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="15" name="team_id">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="73" parent="15" name="userstory_userstory_id_uindex">
+      <ColNames>userstory_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="15" name="userstory_pk">
+      <ColNames>userstory_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>userstory_userstory_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="75" parent="15">
+      <ColNames>project_id</ColNames>
+      <RefTableName>project</RefTableName>
+      <RefKeyName>project_pk</RefKeyName>
+      <RefColNames>project_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="76" parent="15">
+      <ColNames>priority_num</ColNames>
+      <RefTableName>priority</RefTableName>
+      <RefKeyName>priority_pk</RefKeyName>
+      <RefColNames>priority_num</RefColNames>
+    </foreign-key>
+    <foreign-key id="77" parent="15">
+      <ColNames>team_id</ColNames>
+      <RefTableName>team</RefTableName>
+      <RefKeyName>team_pk</RefKeyName>
+      <RefColNames>team_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

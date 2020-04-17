@@ -1,0 +1,45 @@
+{% extends "team_base.html" %}
+{% block title %} Team Info {% endblock %}
+
+{% block team_base_content %}
+            <div class="col-7">
+                <h1>Team:   <span>{{ team_details[0].team_name }}</span></h1><br>
+                <h3>Team ID: {{ team_details[0].team_id }}</h3>
+                <h3>Team Members:</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    {% for team_detail in team_details %}
+                        <tr>
+                            <td>{{ team_detail.user_id }}</td>
+                            <td>{{ team_detail.user_name }}</td>
+                            <td>{{ team_detail.email }}</td>
+                        </tr>
+                    {% endfor %}
+                    </thead>
+                </table>
+                {% if not userstory %}
+                    <h3>No User Story Working on</h3>
+                {% else %}
+                    <h3>User Story Working on:{{ userstory[0].content}}</h3>
+                    <h3>Start from: {{ userstory[0].creation_date }}</h3>
+                    <h3>Due: {{ userstory[0].deadline }}</h3>
+                    <h3>Priority: {{ userstory[0].priority_level }}</h3>
+                    <h3>Relevant to: {{ userstory[0].project_name }} </h3>
+                {% endif %}
+                <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id)}}">Edit</a>
+                <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id)}}">Delete</a>
+            </div>
+            <div class="col-2">
+                <h3>Team Leader:</h3>
+                <p>{{ team_leader[0].user_name }}</p>
+                <h3>Team Members:</h3>
+                Member 1
+                Member 2
+                Member3
+            </div>
+{% endblock %}

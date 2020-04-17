@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+    <div role=main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="{{ url_for('userstory.userstory_creation') }}"
+                               class="btn btn-primary btn-lg btn-block"><strong>Create a Userstory</strong>
+                            </a><br>
+                        </li>
+                        <li class="nav-item">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Project</th>
+                                </tr>
+                                {% for project in projects %}
+                                    <tr>
+                                        <td><a type="button" class="btn btn-light btn-sm btn-block"
+                                               href="{{ url_for('userstory.userstory_info', project_id=project.project_id) }}">{{ project.name }}</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </thead>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                {% block userstory_base_content %}
+                    <!-- userstory page content -->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

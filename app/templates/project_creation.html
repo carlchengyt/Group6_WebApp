@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Project Creation {% endblock %}
+{% block home %} (current) {% endblock %}
+{% block content%}
+    {% from "_formhelpers.html" import render_field %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url_for('project.create_project') }}" type="button"
+                           class="col"><strong>Create a New Project</strong>
+                        </a><br>
+                    </li>
+                </ul>
+            </div>
+            <form method="POST" novalidate>
+                <dl>
+                    {{ render_field(form.name, class='form-control') }}
+                    {{ render_field(form.description, class='form-control') }}
+                    {{ render_field(form.communication, class='form-control') }}
+                    {{ render_field(form.due_date, class='form-control') }}
+                </dl>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

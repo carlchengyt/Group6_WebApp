@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} backlog {% endblock %}
+{% block home %} (current) {% endblock %}
+{% block content%}
+    <style>
+    .dropdown{
+        position:relative;
+        display:inline-block;
+        margin-left: 50px;
+    }
+    .dropdown-content{
+        display:none;
+        position:absolute;
+        min-width:160px;
+        background-color:#f9f9f9;
+        box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+        padding:12px 16px;
+        z-index:1;
+    }
+    .dropdown:hover.dropdown-content{
+        display:block;
+    }
+    .box{
+        margin:5px;
+        list-style:none;
+    }
+    </style>
+    {% from "_formhelpers.html" import render_field %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url_for('project.create_project') }}" type="button"
+                           class="btn btn-primary btn-lg btn-block"><strong>Create a New Project</strong>
+                        </a><br>
+                    </li>
+                </ul>
+            </div>
+            <div scope="col-8" class="dropdown">
+                <form method="POST" novalidate>
+                <dl>
+                    {{ render_field(form.name, class='form-control') }}
+                    {{ render_field(form.description, class='form-control') }}
+                    {{ render_field(form.communication, class='form-control') }}
+                    {{ render_field(form.due_date, class='form-control') }}
+                </dl>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

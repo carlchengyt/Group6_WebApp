@@ -1,0 +1,24 @@
+{% extends "team_base.html" %}
+{% block title %} Team Creation {% endblock %}
+
+{% block team_base_content %}
+    {% from "_formhelpers.html" import render_field %}
+    <div class="col-7">
+        <h1>Creating a New Team</h1>
+        <form method=post novalidate>
+                    <dl>
+                        {{ render_field(new_team_form.name, class='form-control') }}
+                        {{ render_field(new_team_form.leader, class='form-control') }}
+                        {{ render_field(new_team_form.member1, class='form-control') }}
+                        {{ render_field(new_team_form.member2, class='form-control') }}
+                        {{ render_field(new_team_form.member3, class='form-control') }}
+                        {{ render_field(new_team_form.member4, class='form-control') }}
+                        {{ render_field(new_team_form.member5, class='form-control') }}
+                    </dl>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+    </div>
+    <div class="col-2">
+    </div>
+
+{% endblock %}

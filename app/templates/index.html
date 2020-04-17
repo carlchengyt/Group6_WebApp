@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Room {% endblock %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+    <div class="col-8">
+        <form method=post novalidate>
+            <p>
+                Please select the team chat you want to join
+            </p>
+            <dl>
+        {{ render_field(team_form.team, class='form-control') }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+            </dl>
+        </form>
+    </div>
+
+    </body>
+{% endblock %}

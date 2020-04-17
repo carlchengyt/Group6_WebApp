@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Group5" uuid="fc4cf146-3d3e-4dac-8f7d-911e337978c5">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\admin\PycharmProjects\Group5_Team\Group5.sqlite</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/sqlite-jdbc-3.25.1.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Group5.sqlite" uuid="f7ef0fa7-5a44-4902-9582-2da16ae10e0f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../Group6_WebApp/Group5.sqlite</jdbc-url>
+    </data-source>
+  </component>
+</project>

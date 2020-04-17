@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %} backlog {% endblock %}
+{% block home %} (current) {% endblock %}
+{% block content%}
+    <style>
+    .dropdown{
+        position:relative;
+        display:inline-block;
+        margin-left: 50px;
+    }
+    .dropdown-content{
+        display:none;
+        position:absolute;
+        min-width:160px;
+        background-color:#f9f9f9;
+        box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+        padding:12px 16px;
+        z-index:1;
+    }
+    .dropdown:hover.dropdown-content{
+        display:block;
+    }
+    .box{
+        margin:5px;
+        list-style:none;
+    }
+    </style>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="{{ url_for('project.create_project') }}" type="button"
+                           class="btn btn-primary btn-lg btn-block"><strong>Create a New Project</strong>
+                        </a><br>
+                    </li>
+                </ul>
+            </div>
+            <div scope="col-8" class="dropdown">
+                <h1>Project: {{ current_project.name }}</h1>
+                <h5>Project ID: {{ current_project.project_id }}</h5>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Userstory ID</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">Creation Date </th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col">Priority Level</th>
+                        <th scope="col">Assigned Team</th>
+                    </tr>
+                    {% for userstory in links %}
+                        <tr>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.userstory_id }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.content }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.creation_date }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.deadline }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.priority_level }}</a></td>
+                            <td><a href="{{ url_for('userstory.userstory_info') }}">{{ userstory.team_name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </thead>
+                </table>
+                <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
+                   class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a>
+                <a href="{{ url_for('project.delete_project', project=current_project.project_id) }}" type="button"
+                   class="btn btn-primary btn-lg btn-block"><strong>Delete Project</strong></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

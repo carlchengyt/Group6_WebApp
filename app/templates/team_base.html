@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %} Team Base {% endblock %}
+
+{% block content %}
+
+    <div role=main>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="{{ url_for('team.team_creation') }}" type="button"
+                               class="btn btn-primary btn-lg btn-block"><strong>Create a New Team</strong>
+                            </a><br>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline ml-auto" method="post" action ="{{ url_for('team.team_base') }}">
+                                <input class="form-control" type="search" placeholder="Enter Team name" aria-label="Search" name="search_term">
+                                <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Team List</th>
+                                </tr>
+                                {% for team in teams %}
+                                    <tr>
+                                        <td><a type="button" class="btn btn-light btn-sm btn-block"
+                                               href="{{ url_for('team.team_info', team_id=team.team_id) }}">{{ team.name }}</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </thead>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                {% block team_base_content %}
+                    <!-- team page content -->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
