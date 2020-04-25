@@ -181,3 +181,5 @@ def project_search():
         return render_template("project_search.html", projects=results)
     else:
         return redirect(url_for('project.backlog'))
+
+

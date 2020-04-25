@@ -31,28 +31,23 @@
             <div scope="col-8" class="dropdown">
                 <h1>Project: {{ current_project.name }}</h1>
                 <h5>Project ID: {{ current_project.project_id }}</h5>
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Userstory ID</th>
-                        <th scope="col">Content</th>
-                        <th scope="col">Creation Date </th>
-                        <th scope="col">Deadline</th>
-                        <th scope="col">Priority Level</th>
-                        <th scope="col">Assigned Team</th>
-                    </tr>
+                <h6>Assigned Date: {{ current_project.assigned_date }}</h6>
+                <h6>due Date: {{ current_project.due_date }}</h6>
+                <div class="col-8">
+                    <h1>Description:</h1>
+                    <p>{{ current_project.description }}</p>
+                </div>
+                <div class="col-8">
+                    <h1>Communication:</h1>
+                    <p>{{ current_project.communication }}</p>
+                </div>
+                <div class="col-8">
                     {% for userstory in links %}
-                        <tr>
-                            <td><a href="#">{{ userstory.userstory_id }}</a></td>
-                            <td><a href="#">{{ userstory.content }}</a></td>
-                            <td><a href="#">{{ userstory.creation_date }}</a></td>
-                            <td><a href="#">{{ userstory.deadline }}</a></td>
-                            <td><a href="#">{{ userstory.priority_level }}</a></td>
-                            <td><a href="#">{{ userstory.team_name }}</a></td>
-                        </tr>
+                        <a href="{{ url_for(userstory.userstory_info, project_id=current_project.project_id) }}">
+                        Number of Userstory: {{ count(userstory.userstory_id) }}
+                        </a>
                     {% endfor %}
-                    </thead>
-                </table>
+                </div>
                 <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
                    class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a>
                 <a href="{{ url_for('project.delete_project', project=current_project.project_id) }}" type="button"

@@ -47,17 +47,13 @@
             <div scope="col-8" class="dropdown">
                 {% for project in projects %}
                     <a href="{{ url_for('project.project', term=project.project_id) }}" type="button"
-                           class="box">>
+                           class="box">
                         <li>Project: </li>
                         <li>{{ project.name }}</li>
                         <li>Assigned Date: </li>
                         <li>{{ project.assigned_date }}</li>
                         <li>Due date: </li>
                         <li>{{ project.due_date }}</li>
-                        <li>Description: </li>
-                        <li>{{ project.description }}</li>
-                        <li>Communication: </li>
-                        <li>{{ project.communication }}</li>
                     </a>
                 {% endfor %}
             </div>
