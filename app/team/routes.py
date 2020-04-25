@@ -48,13 +48,13 @@ def team_info(team_id):
                                                                          User.name.label('user_name'), User.user_id,
                                                                          User.email).order_by(User.user_id).filter(
             Team.team_id.contains(team_id)).all()
-        userstory = Userstory.query.join(Team, Project, Priority).with_entities(Team.team_id,
+        userstory = Userstory.query.join(Team, Project).with_entities(Team.team_id,
                                                                                 Userstory.userstory_id, Userstory.content,
                                                                                 Userstory.creation_date, Userstory.deadline,
                                                                                 Project.project_id,
                                                                                 Project.name.label('project_name'),
-                                                                                Project.description,
-                                                                                Priority.priority_level).filter(
+                                                                                Project.description
+                                                                                ).filter(
             Team.team_id.contains(team_id)).all()
     else:
         response = make_response(redirect(url_for('auth.login')))
