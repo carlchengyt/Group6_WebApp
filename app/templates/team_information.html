@@ -28,7 +28,7 @@
                     <h3>User Story Working on:{{ userstory[0].content}}</h3>
                     <h3>Start from: {{ userstory[0].creation_date }}</h3>
                     <h3>Due: {{ userstory[0].deadline }}</h3>
-                    <h3>Priority: {{ userstory[0].priority_level }}</h3>
+                    <h3>Priority: {{ userstory[0].priority }}</h3>
                     <h3>Relevant to: {{ userstory[0].project_name }} </h3>
                 {% endif %}
                 <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id)}}">Edit</a>
