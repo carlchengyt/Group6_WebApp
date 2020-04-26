@@ -25,11 +25,13 @@
                 {% if not userstory %}
                     <h3>No User Story Working on</h3>
                 {% else %}
-                    <h3>User Story Working on:{{ userstory[0].content}}</h3>
-                    <h3>Start from: {{ userstory[0].creation_date }}</h3>
-                    <h3>Due: {{ userstory[0].deadline }}</h3>
-                    <h3>Priority: {{ userstory[0].priority_level }}</h3>
-                    <h3>Relevant to: {{ userstory[0].project_name }} </h3>
+                    {% for one_userstory in userstory %}
+                        <h3>User Story Working on:{{ one_userstory.content}}</h3>
+                        <h3>Start from: {{ one_userstory.creation_date }}</h3>
+                        <h3>Due: {{ one_userstory.deadline }}</h3>
+                        <h3>Priority: {{ one_userstory.priority }}</h3>
+                        <h3>Relevant to: {{ one_userstory.project_name }} </h3><br>
+                    {% endfor %}
                 {% endif %}
                 <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id)}}">Edit</a>
                 <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id)}}">Delete</a>
