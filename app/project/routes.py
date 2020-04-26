@@ -1,10 +1,7 @@
 from datetime import date
-
 from flask import render_template, Blueprint, request, flash, redirect, url_for, make_response
 from wtforms import ValidationError
-
 from app.project.forms import ProjectForm
-
 from app import db
 from app.models import Project, Team, Userstory
 
@@ -65,12 +62,15 @@ def project(term):
                                                                      Team.name.label(
                                                                          'team_name')).order_by(
         Userstory.userstory_id).filter(Userstory.project_id.contains(term)).all()
+    userstory_number = Userstory.query.filter(Userstory.project_id.contains(term)).count()
+    print(userstory_number)
     current_project = Project.query.filter(Project.project_id == term).first()
     print(current_project.project_id)
     if not project_link:
         flash("No Projects Founded!")
 
-    return render_template('project.html', projects=projects, links=project_link, current_project=current_project)
+    return render_template('project.html', projects=projects, links=project_link, current_project=current_project,
+                           userstory_number=userstory_number)
 
 
 @bp_project.route('/EditProject/<id>', methods=['POST', 'GET'])

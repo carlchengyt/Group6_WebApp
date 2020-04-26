@@ -42,11 +42,10 @@
                     <p>{{ current_project.communication }}</p>
                 </div>
                 <div class="col-8">
-                    {% for userstory in links %}
-                        <a href="{{ url_for(userstory.userstory_info, project_id=current_project.project_id) }}">
-                        Number of Userstory: {{ count(userstory.userstory_id) }}
-                        </a>
-                    {% endfor %}
+                    <a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
+                        <h1>Userstory:</h1><br>
+                        <p>Current Number: {{ userstory_number }}</p>
+                    </a>
                 </div>
                 <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
                    class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a>
