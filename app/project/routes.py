@@ -1,5 +1,6 @@
 from datetime import date
 from flask import render_template, Blueprint, request, flash, redirect, url_for, make_response
+from flask_login import current_user
 from wtforms import ValidationError
 from app.project.forms import ProjectForm
 from app import db
@@ -10,14 +11,18 @@ bp_project = Blueprint('project', __name__)
 
 @bp_project.route('/Backlog', methods=['GET', 'POST'])
 def backlog():
-    backlogs = Project.query.all()
-    backlog_link = Project.query.join(Userstory).with_entities(Project.name.label('project_name'),
-                                                               Project.project_id,
-                                                               Userstory.userstory_id,
-                                                               Userstory.content).order_by(
-        Userstory.userstory_id).all()
-    return render_template('backlog.html', projects=backlogs, links=backlog_link)
-
+    if current_user.is_authenticated:
+        backlogs = Project.query.all()
+        backlog_link = Project.query.join(Userstory).with_entities(Project.name.label('project_name'),
+                                                                   Project.project_id,
+                                                                   Userstory.userstory_id,
+                                                                   Userstory.content).order_by(
+            Userstory.userstory_id).all()
+        return render_template('backlog.html', projects=backlogs, links=backlog_link)
+    else:
+        response = make_response(redirect(url_for('auth.login')))
+        flash('Please Login First To Use The Project Function')
+        return response
 
 @bp_project.route('/ProjectCreation', methods=['POST', 'GET'])
 def create_project():
