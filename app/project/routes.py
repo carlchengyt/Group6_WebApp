@@ -30,7 +30,6 @@ def create_project():
     projects = Project.query.all()
     form = ProjectForm(request.form)
     if request.method == 'POST':
-        print(form.due_date)
         create_date = date.today()
         if form.communication.data == "":
             form.communication.data = "No Communication"
@@ -68,9 +67,7 @@ def project(term):
                                                                          'team_name')).order_by(
         Userstory.userstory_id).filter(Userstory.project_id.contains(term)).all()
     userstory_number = Userstory.query.filter(Userstory.project_id.contains(term)).count()
-    print("userstory number "+str(userstory_number))
     current_project = Project.query.filter(Project.project_id == term).first()
-    print("current project id "+str(current_project.project_id))
     if not project_link:
         flash("This Project has not been fully setup!")
 
@@ -166,20 +163,16 @@ def project_search():
                                                        Project.communication,
                                                        Project.assigned_date, Project.due_date).order_by(
         Project.project_id).filter(Project.communication.contains(term)).all()
-    print(search_communication)
 
     if request.method == 'POST':
         if term == '':
             flash("Enter a Project Name, Description or Communication")
             return redirect(url_for('project.backlog'))
         results = Project.query.filter(Project.name.contains(term)).all()
-        print("name" + str(search_name))
         if not search_name:
             results = Project.query.filter(Project.description.contains(term)).all()
-            print("description" + str(search_description))
             if not search_description:
                 results = Project.query.filter(Project.communication.contains(term)).all()
-                print("communication" + str(search_communication))
                 if not results:
                     flash('No Project Found')
                     return redirect(url_for('project.backlog'))
