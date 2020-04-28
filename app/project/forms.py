@@ -19,14 +19,18 @@ class ProjectForm(FlaskForm):
         projects = Project
         results = db.session.query(Project).filter(
             (projects.name == name.data)).first()
-        if results is not None:
-            raise ValidationError('A project is already registered with this name.')
+        print(results)
+        if results is None:
+            if name.data == "":
+                raise ValidationError('No Project Name has been entered.')
+            else:
+                return True
         else:
-            return True
+            raise ValidationError('A project is already registered with this name.')
 
     def validate_due_date(self, today, due_date):
-        if due_date.data is not None:
-            if (today < self.due_date.data):
+        if due_date is not None:
+            if today < self.due_date.data:
                 return True
             else:
                 raise ValidationError('Due date is set before today.')

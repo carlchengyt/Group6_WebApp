@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
 from config import Config
 
-
 db = SQLAlchemy()
 login_manager = LoginManager()
 socketio = SocketIO()
@@ -17,8 +16,8 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
-def create_app(debug=False):
 
+def create_app(debug=False):
     app = Flask(__name__)
     app.debug = debug
     app.config.from_object(Config)
@@ -55,4 +54,3 @@ def create_app(debug=False):
 
     socketio.init_app(app)
     return app
-

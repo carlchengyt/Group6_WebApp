@@ -24,6 +24,7 @@ def backlog():
         flash('Please Login First To Use The Project Function')
         return response
 
+
 @bp_project.route('/ProjectCreation', methods=['POST', 'GET'])
 def create_project():
     projects = Project.query.all()
@@ -37,19 +38,18 @@ def create_project():
             form.description.data = "No Description"
         try:
             form.validate_project(form.name)
+            form.validate_due_date(create_date, form.due_date.data)
             projects = Project(name=form.name.data,
                                description=form.description.data,
                                communication=form.communication.data,
                                assigned_date=create_date,
                                due_date=form.due_date.data)
-            form.due_date.data is not None and form.validate_due_date(create_date)
-
             db.session.add(projects)
             db.session.commit()
             flash('Project Created Successfully!!!')
             return redirect(url_for('project.backlog'))
         except ValidationError:
-            flash('Repeated Project Name')
+            flash('Project Creation Failed')
             return redirect(url_for('project.backlog'))
     return render_template('project_creation.html', form=form, projects=projects)
 
@@ -68,11 +68,11 @@ def project(term):
                                                                          'team_name')).order_by(
         Userstory.userstory_id).filter(Userstory.project_id.contains(term)).all()
     userstory_number = Userstory.query.filter(Userstory.project_id.contains(term)).count()
-    print(userstory_number)
+    print("userstory number "+str(userstory_number))
     current_project = Project.query.filter(Project.project_id == term).first()
-    print(current_project.project_id)
+    print("current project id "+str(current_project.project_id))
     if not project_link:
-        flash("No Projects Founded!")
+        flash("This Project has not been fully setup!")
 
     return render_template('project.html', projects=projects, links=project_link, current_project=current_project,
                            userstory_number=userstory_number)
@@ -186,5 +186,3 @@ def project_search():
         return render_template("project_search.html", projects=results)
     else:
         return redirect(url_for('project.backlog'))
-
-
