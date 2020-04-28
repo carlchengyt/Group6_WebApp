@@ -22,7 +22,7 @@ def team_base():  # with search function
         if request.method == 'POST':
             term = request.form['search_term']
             if term == '':
-                flash("Enter a Team Name or Member Name")
+                flash("Enter a Team Name")
                 return redirect(url_for('team.team_base'))
             results = Team.query.filter(Team.name.contains(term)).all()
             if not results:
