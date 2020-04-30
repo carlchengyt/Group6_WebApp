@@ -8,29 +8,55 @@
         {% if not userstories %}
             <h3>No User Story Working on</h3>
         {% else %}
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Userstory</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Project</th>
-                    <th scope="col"><span class="text-nowrap">Start Date</span></th>
-                    <th scope="col">Deadline</th>
-                </tr>
-                {% for userstory in userstories %}
-                    <tr>
-                        <td>{{ userstory.content }}</td>
-                        <td>{{ userstory.priority }}</td>
-                        <td>{{ userstory.project_name }}</td>
-                        <td><span class="text-nowrap">{{ userstory.creation_date }}</span></td>
-                        <td><span class="text-nowrap">{{ userstory.deadline }}</span></td>
-                    </tr>
-                {% endfor %}
-                </thead>
-            </table>
+            <div class="container-fluid">
+                <div class="card mb-4">
+                    <div class="card-header"><i class="fas fa-table mr-1"></i>Project Information</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Userstory</th>
+                                    <th>Priority</th>
+                                    <th>Project</th>
+                                    <th>Start Date</th>
+                                    <th>Deadline</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Userstory</th>
+                                    <th>Priority</th>
+                                    <th>Project</th>
+                                    <th>Start Date</th>
+                                    <th>Deadline</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+
+
+                                {% for userstory in userstories %}
+                                    <tr>
+                                        <td>{{ userstory.content }}</td>
+                                        <td>{{ userstory.priority }}</td>
+                                        <td>{{ userstory.project_name }}</td>
+                                        <td><span class="text-nowrap">{{ userstory.creation_date }}</span></td>
+                                        <td><span class="text-nowrap">{{ userstory.deadline }}</span></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endif %}
-        <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id) }}">Edit Team</a>
-        <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id) }}">Delete Team</a>
+
+
+        <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id) }}">Edit
+            Team</a>
+        <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id) }}">Delete
+            Team</a>
     </div>
     <div class="col-2">
         <h3>Team Leader:</h3>
