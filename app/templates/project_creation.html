@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} Project Creation {% endblock %}
-{% block content%}
+{% block content %}
     {% from "_formhelpers.html" import render_field %}
     <div class="container-fluid">
         <div class="row">
@@ -13,14 +13,14 @@
                     </li>
                     <li>
                         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100"
-                              method="post" action ="{{ url_for('project.project_search') }}">
+                              method="post" action="{{ url_for('project.project_search') }}">
                             <div class="input-group">
                                 <input type="text" class="form-control bg-light border-0 small"
                                        placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"
                                        name="search_term">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search fa-sm"></i>
+                                        <i class="fas fa-search fa-sm"></i>
                                     </button>
                                 </div>
                             </div>
@@ -28,15 +28,19 @@
                     </li>
                 </ul>
             </div>
-            <form method="POST" novalidate>
-                <dl>
-                    {{ render_field(form.name, class='form-control') }}
-                    {{ render_field(form.description, class='form-control') }}
-                    {{ render_field(form.communication, class='form-control') }}
-                    {{ render_field(form.due_date, class='form-control') }}
-                </dl>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <div class="col-8">
+                <form method="POST" novalidate>
+                    <dl>
+                        {{ render_field(form.name, class='form-control') }}
+                        {{ render_field(form.description, class='form-control') }}
+                        {{ render_field(form.communication, class='form-control') }}
+                        {{ render_field(form.due_date, class='form-control') }}
+                    </dl>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-2">
         </div>
     </div>
 {% endblock %}
