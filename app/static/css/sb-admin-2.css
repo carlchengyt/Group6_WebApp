@@ -10996,15 +10996,33 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
-.textarea{
-	width: 600px !important;
-	height: 120px!important;
-	border: 3px solid #cccccc!important;
-	padding: 5px!important;
-	font-family: Tahoma, sans-serif!important;
-	/*background-image: url(bg.gif);
 
-	 */
-	background-position: bottom right;
-	background-repeat: no-repeat;
+input, textarea {
+    width: 500px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    font-family: 'Sniglet', cursive;
+    font-size: 1em;
+    color: #676767;
+    transition: border 0.5s;
+    -webkit-transition: border 0.5s;
+    -moz-transition: border 0.5s;
+    -o-transition: border 0.5s;
+    border: solid 3px #98d4f3;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input:focus, textarea:focus{
+	border: solid 3px #77bde0;
+}
+textarea{
+	height: 100px;
+	resize: none;
+	overflow: auto;
+}
+.formgroup{
+	background-image: url('http://www.geertjanhendriks.nl/codepen/form/pixel.gif');
 }
