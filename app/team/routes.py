@@ -36,7 +36,8 @@ def team_base():  # with search function
         flash('Please Login First To Use The Team Function')
         return response
 
-@bp_team.route('/team_info<team_id>', methods=['GET','POST'])
+
+@bp_team.route('/team_info<team_id>', methods=['GET', 'POST'])
 def team_info(team_id):
     if current_user.is_authenticated:
 
@@ -48,19 +49,20 @@ def team_info(team_id):
                                                                          User.name.label('user_name'), User.user_id,
                                                                          User.email).order_by(User.user_id).filter(
             Team.team_id.contains(team_id)).all()
-        userstory = Userstory.query.join(Team, Project).with_entities(Team.team_id,
-                                                                                Userstory.userstory_id, Userstory.content,
-                                                                                Userstory.creation_date, Userstory.deadline,Userstory.priority,
-                                                                                Project.project_id,
-                                                                                Project.name.label('project_name'),
-                                                                                Project.description).filter(
+        userstories = Userstory.query.join(Team, Project).with_entities(Team.team_id,
+                                                                        Userstory.userstory_id, Userstory.content,
+                                                                        Userstory.creation_date, Userstory.deadline,
+                                                                        Userstory.priority,
+                                                                        Project.project_id,
+                                                                        Project.name.label('project_name'),
+                                                                        Project.description).filter(
             Team.team_id.contains(team_id)).all()
     else:
         response = make_response(redirect(url_for('auth.login')))
         flash('Please Login First To Use The Team Function')
         return response
     return render_template('team_information.html', teams=teams, team_leader=team_leader,
-                           team_details=team_details, userstory=userstory)
+                           team_details=team_details, userstories=userstories)
 
 
 @bp_team.route('/team_info/team<team_id>/delete', methods=['GET', 'POST'])
