@@ -78,10 +78,7 @@ def project(term):
 @bp_project.route('/EditProject/<id>', methods=['POST', 'GET'])
 def edit_project(id):
     form = ProjectForm(request.form)
-    current_project = Project.query.with_entities(Project.name, Project.project_id, Project.description,
-                                                  Project.communication, Project.assigned_date,
-                                                  Project.due_date).order_by(
-        Project.project_id).filter(Project.project_id.contains(id)).first()
+    current_project = Project.query.order_by(Project.project_id).filter(Project.project_id.contains(id)).first()
 
     def clear_project_name():
         clear = Project.query.filter(Project.project_id.contains(id)).first()
@@ -106,7 +103,7 @@ def edit_project(id):
         form.description.data = current_project.description
         form.communication.data = current_project.communication
         # form.due_date.data = current_project.due_date
-        return render_template('project_edition.html', form=form)
+        return render_template('project_edition.html', form=form, current_project=current_project)
 
     elif request.method == 'POST':
         project = Project.query.filter(Project.project_id.contains(id)).first()

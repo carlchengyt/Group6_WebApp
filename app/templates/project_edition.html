@@ -41,7 +41,7 @@
                     {{ render_field(form.name, class='form-control') }}
                     {{ render_field(form.description, class='form-control') }}
                     {{ render_field(form.communication, class='form-control') }}
-                    {{ render_field(form.due_date, class='form-control') }}
+                    {{ render_field(form.due_date, class='form-control', value=current_project.due_date) }}
                 </dl>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
