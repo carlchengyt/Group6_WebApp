@@ -26,7 +26,7 @@ def room():
         response = make_response(redirect(url_for('auth.login')))
         flash('Please Login First To Use The Chat Function')
         return response
-    return render_template('index.html', team_form=team_form)
+    return render_template('chat_index.html', team_form=team_form)
 
 
 @bp_chatapp.route('/chat')

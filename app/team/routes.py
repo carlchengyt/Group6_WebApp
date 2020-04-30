@@ -12,7 +12,7 @@ bp_team = Blueprint('team', __name__)
 
 @bp_team.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('Home.html')
 
 
 @bp_team.route('/team_base', methods=['GET', 'POST'])
