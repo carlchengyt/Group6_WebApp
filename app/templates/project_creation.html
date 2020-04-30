@@ -32,7 +32,7 @@
                 <form method="POST" novalidate>
                     <dl>
                         {{ render_field(form.name, class='form-control') }}
-                        {{ render_field(form.description, class='form-control') }}
+                        {{ render_field(form.description, class='form-control', rows='3') }}
                         {{ render_field(form.communication, class='form-control') }}
                         {{ render_field(form.due_date, class='form-control') }}
                     </dl>
