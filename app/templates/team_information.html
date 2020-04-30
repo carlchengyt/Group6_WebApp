@@ -4,13 +4,12 @@
 {% block team_base_content %}
     <div class="col-8">
         <h1>Team: <span>{{ team_details[0].team_name }}</span></h1><br>
-        <h3>User stories Working on:</h3>
         {% if not userstories %}
             <h3>No User Story Working on</h3>
         {% else %}
             <div class="container-fluid">
                 <div class="card mb-4">
-                    <div class="card-header"><i class="fas fa-table mr-1"></i>Project Information</div>
+                    <div class="card-header"><i class="fas fa-table mr-1"></i>User stories Working on:</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -23,15 +22,6 @@
                                     <th>Deadline</th>
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>Userstory</th>
-                                    <th>Priority</th>
-                                    <th>Project</th>
-                                    <th>Start Date</th>
-                                    <th>Deadline</th>
-                                </tr>
-                                </tfoot>
                                 <tbody>
 
 
