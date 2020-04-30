@@ -6,7 +6,9 @@
     .dropdown{
         position:relative;
         display:inline-block;
-        margin-left: 50px;
+        margin-left: 65px;
+        color: #212529;
+        background-color: #f8f9fa;
     }
     </style>
     <div class="container-fluid">
@@ -15,13 +17,13 @@
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a href="{{ url_for('project.create_project') }}" type="button"
-                           class="button"><strong>Create a New Project</strong>
+                           class="btn btn-primary btn-lg btn-block"><strong>Create a New Project</strong>
                         </a><br>
                     </li>
                     <li>
-                        <form class="bar" method="post" action ="{{ url_for('project.project_search') }}">
+                        <form class="form-inline ml-auto" method="post" action ="{{ url_for('project.project_search') }}">
                                 <input class="form-control" type="search"
-                                       placeholder="Enter a Project Name, Description or Communication"
+                                       placeholder="Enter Project Info Here"
                                        aria-label="Search" name="search_term">
                                 <button class="btn btn-primary" type="submit">Search</button>
                         </form>
@@ -42,9 +44,9 @@
                     <p>{{ current_project.communication }}</p>
                 </div>
                 <div class="col-8">
-                    <a href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
+                    <a type="button" class="btn-light" href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
                         <h1>Userstory:</h1><br>
-                        <h5>Current Number: {{ userstory_number }}</h5>
+                        <p>{{ userstory_number }} assigned userstory</p>
                     </a>
                 </div>
                 <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
