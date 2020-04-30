@@ -1,16 +1,6 @@
 {% extends "base.html" %}
-{% block title %} backlog {% endblock %}
-{% block home %} (current) {% endblock %}
+{% block title %} Project {% endblock %}
 {% block content%}
-    <style>
-    .dropdown{
-        position:relative;
-        display:inline-block;
-        margin-left: 65px;
-        color: #212529;
-        background-color: #f8f9fa;
-    }
-    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
@@ -37,7 +27,8 @@
                     </li>
                 </ul>
             </div>
-            <div scope="col-8" class="dropdown">
+            <div scope="col-8" style="position:relative; display:inline-block; margin-left: 65px; color: #212529;
+            background-color: #ffffff;">
                 <h1>Project: {{ current_project.name }}</h1>
                 <h5>Project ID: {{ current_project.project_id }}</h5>
                 <h6>Assigned Date: {{ current_project.assigned_date }}</h6>
@@ -51,7 +42,7 @@
                     <p>{{ current_project.communication }}</p>
                 </div>
                 <div class="col-8">
-                    <a type="button" class="btn-light" href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
+                    <a type="button" style="background-color:#ffffff" class="btn-light" href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
                         <h1>Userstory:</h1><br>
                         <p>{{ userstory_number }} assigned userstory</p>
                     </a>

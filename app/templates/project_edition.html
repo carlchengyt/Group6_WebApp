@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-{% block title %} backlog {% endblock %}
-{% block home %} (current) {% endblock %}
+{% block title %} Project Edition {% endblock %}
 {% block content%}
     <style>
-    .dropdown{
+    .project-form{
         position:relative;
         display:inline-block;
         margin-left: 65px;
@@ -36,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <div scope="col-8" class="dropdown">
+            <div scope="col-8" style="position:relative; display:inline-block; margin-left: 65px;">
                 <form method="POST" novalidate>
                 <dl>
                     {{ render_field(form.name, class='form-control') }}
