@@ -30,8 +30,8 @@
             <div scope="col-8" style="position:relative; display:inline-block; margin-left: 65px; color: #212529;
             background-color: #ffffff;">
                 {% for project in projects %}
-                    <a href="{{ url_for('project.project', term=project.project_id) }}" type="button"
-                           class="box btn btn-dark">
+                    <a href="{{ url_for('project.project', term=project.project_id) }}" type="button" style="margin:5px"
+                           class="btn btn-dark">
                         <h1>Project: </h1>
                         <h3>{{ project.name }}</h3>
                         <h2>Assigned Date: </h2>
