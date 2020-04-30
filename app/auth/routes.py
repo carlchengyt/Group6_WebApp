@@ -75,7 +75,7 @@ def login():
         next = request.args.get('next')
         if not is_safe_url(next):
             return abort(400)
-        return redirect(next or url_for('main.index'))
+        return redirect(next or url_for('main.home'))
     return render_template('login.html', form=form)
 
 
@@ -84,6 +84,6 @@ def login():
 def logout():
     logout_user()
     flash('You have been logged out.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.home'))
 
 
