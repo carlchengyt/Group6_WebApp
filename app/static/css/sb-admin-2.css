@@ -10996,12 +10996,12 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
-textarea{
-	width: 600px;
-	height: 120px;
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
+.textarea{
+	width: 600px !important;
+	height: 120px!important;
+	border: 3px solid #cccccc!important;
+	padding: 5px!important;
+	font-family: Tahoma, sans-serif!important;
 	/*background-image: url(bg.gif);
 
 	 */
