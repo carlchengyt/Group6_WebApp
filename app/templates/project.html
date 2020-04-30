@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} Project {% endblock %}
-{% block content%}
+{% block content %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
@@ -12,14 +12,14 @@
                     </li>
                     <li>
                         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100"
-                              method="post" action ="{{ url_for('project.project_search') }}">
+                              method="post" action="{{ url_for('project.project_search') }}">
                             <div class="input-group">
                                 <input type="text" class="form-control bg-light border-0 small"
                                        placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"
                                        name="search_term">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search fa-sm"></i>
+                                        <i class="fas fa-search fa-sm"></i>
                                     </button>
                                 </div>
                             </div>
@@ -27,30 +27,23 @@
                     </li>
                 </ul>
             </div>
-            <div scope="col-8" style="position:relative; display:inline-block; margin-left: 65px; color: #212529;
+            <div class="col-8" style="position:relative; display:inline-block; margin-left: 65px; color: #212529;
             background-color: #ffffff;">
                 <h1>Project: {{ current_project.name }}</h1>
-                <h5>Project ID: {{ current_project.project_id }}</h5>
-                <h6>Assigned Date: {{ current_project.assigned_date }}</h6>
-                <h6>due Date: {{ current_project.due_date }}</h6>
-                <div class="col-8">
-                    <h1>Description:</h1>
-                    <p>{{ current_project.description }}</p>
-                </div>
-                <div class="col-8">
-                    <h1>Communication:</h1>
-                    <p>{{ current_project.communication }}</p>
-                </div>
-                <div class="col-8">
-                    <a type="button" style="background-color:#ffffff" class="btn-light" href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
-                        <h1>Userstory:</h1><br>
-                        <p>{{ userstory_number }} assigned userstory</p>
-                    </a>
-                </div>
+                <p>Assigned Date: {{ current_project.assigned_date }}   Due Date: {{ current_project.due_date }}</p>
+                <h3>Description:</h3>
+                <p>{{ current_project.description }}</p>
+                <h3>Communication:</h3>
+                <p>{{ current_project.communication }}</p>
+
+                <a type="button" style="background-color:#ffffff" class="btn-light"
+                   href="{{ url_for('userstory.userstory_info', project_id=current_project.project_id) }}">
+                    <h3>Userstory: {{ userstory_number }} assigned userstory</h3>
+                </a><br>
                 <a href="{{ url_for('project.edit_project', id=current_project.project_id) }}" type="button"
-                   class="btn btn-primary btn-lg btn-block"><strong>Edit Project</strong></a>
+                   class="btn btn-primary"><strong>Edit Project</strong></a>
                 <a href="{{ url_for('project.delete_project', project=current_project.project_id) }}" type="button"
-                   class="btn btn-primary btn-lg btn-block"><strong>Delete Project</strong></a>
+                   class="btn btn-primary"><strong>Delete Project</strong></a>
             </div>
         </div>
     </div>
