@@ -28,6 +28,9 @@
                                         {{ form.hidden_tag() }}
 
                                         <dl class="form-group">
+                                            {% for message in get_flashed_messages() %}
+                                                <div class="text-danger">Error: {{ message }}</div>
+                                            {% endfor %}
                                             {{ render_field(form.email, id="inputEmail", class='form-control ') }}
                                             {{ render_field(form.password, class='form-control form-contorl-user') }}
                                             {{ render_field(form.remember_me) }}
