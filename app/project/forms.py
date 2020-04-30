@@ -1,16 +1,15 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, StringField, PasswordField, ValidationError, BooleanField, SubmitField, FieldList, \
-    FormField
+from wtforms import StringField, ValidationError, SubmitField, TextAreaField
 from wtforms.fields.html5 import DateField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
-from flask import flash, redirect, url_for
+from wtforms.validators import DataRequired, Length
+
 from app import db
-from app.models import User, Team, TeamUserLink, Project
+from app.models import Project
 
 
 class ProjectForm(FlaskForm):
     name = StringField('Project Name:', validators=[DataRequired()])
-    description = StringField('Project Description:')
+    description = TextAreaField('Project Description:')
     communication = StringField('Project Communication:')
     due_date = DateField('Due Date:', validators=[DataRequired()], format='%Y-%m-%d')
     submit = SubmitField('Submit')
@@ -19,7 +18,6 @@ class ProjectForm(FlaskForm):
         projects = Project
         results = db.session.query(Project).filter(
             (projects.name == name.data)).first()
-        print(results)
         if results is None:
             if name.data == "":
                 raise ValidationError('No Project Name has been entered.')

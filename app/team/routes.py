@@ -36,7 +36,8 @@ def team_base():  # with search function
         flash('Please Login First To Use The Team Function')
         return response
 
-@bp_team.route('/team_info<team_id>', methods=['GET','POST'])
+
+@bp_team.route('/team_info<team_id>', methods=['GET', 'POST'])
 def team_info(team_id):
     if current_user.is_authenticated:
 
@@ -48,19 +49,20 @@ def team_info(team_id):
                                                                          User.name.label('user_name'), User.user_id,
                                                                          User.email).order_by(User.user_id).filter(
             Team.team_id.contains(team_id)).all()
-        userstory = Userstory.query.join(Team, Project).with_entities(Team.team_id,
-                                                                                Userstory.userstory_id, Userstory.content,
-                                                                                Userstory.creation_date, Userstory.deadline,Userstory.priority,
-                                                                                Project.project_id,
-                                                                                Project.name.label('project_name'),
-                                                                                Project.description).filter(
+        userstories = Userstory.query.join(Team, Project).with_entities(Team.team_id,
+                                                                        Userstory.userstory_id, Userstory.content,
+                                                                        Userstory.creation_date, Userstory.deadline,
+                                                                        Userstory.priority,
+                                                                        Project.project_id,
+                                                                        Project.name.label('project_name'),
+                                                                        Project.description).filter(
             Team.team_id.contains(team_id)).all()
     else:
         response = make_response(redirect(url_for('auth.login')))
         flash('Please Login First To Use The Team Function')
         return response
     return render_template('team_information.html', teams=teams, team_leader=team_leader,
-                           team_details=team_details, userstory=userstory)
+                           team_details=team_details, userstories=userstories)
 
 
 @bp_team.route('/team_info/team<team_id>/delete', methods=['GET', 'POST'])
@@ -94,11 +96,6 @@ def team_creation():
         new_team_form.member4.choices = user_list
         new_team_form.member5.choices = user_list
 
-        # def get_userid(userid):
-        # id = User.query.with_entities(User.user_id).filter(User.name == userid).all()
-        # user_id = id[0][0]
-        # return user_id
-
         def commit_user(team_id, user_id):
             user = TeamUserLink(team_id=team_id, user_id=user_id)
             db.session.add(user)
@@ -119,11 +116,7 @@ def team_creation():
                 db.session.commit()
                 id = Team.query.with_entities(Team.team_id).filter(Team.name == new_team_form.name.data).all()
                 team_id = id[0][0]
-                # user_id1 = get_userid(form.member1.data)
-                # user_id2 = get_userid(form.member2.data)
-                # user_id3 = get_userid(form.member3.data)
-                # user_id4 = get_userid(form.member4.data)
-                # user_id5 = get_userid(form.member5.data)
+
                 commit_user(team_id, new_team_form.member1.data)
                 commit_user(team_id, new_team_form.member2.data)
                 commit_user(team_id, new_team_form.member3.data)

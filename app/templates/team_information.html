@@ -2,44 +2,60 @@
 {% block title %} Team Info {% endblock %}
 
 {% block team_base_content %}
-            <div class="col-8">
-                <h1>Team:   <span>{{ team_details[0].team_name }}</span></h1><br>
-                <h3>Team ID: {{ team_details[0].team_id }}</h3>
-                <h3>Team Members:</h3>
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">User ID</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                    {% for team_detail in team_details %}
-                        <tr>
-                            <td>{{ team_detail.user_id }}</td>
-                            <td>{{ team_detail.user_name }}</td>
-                            <td>{{ team_detail.email }}</td>
-                        </tr>
-                    {% endfor %}
-                    </thead>
-                </table>
-                {% if not userstory %}
-                    <h3>No User Story Working on</h3>
-                {% else %}
-                    {% for one_userstory in userstory %}
-                        <h3>User Story Working on:{{ one_userstory.content}}</h3>
-                        <h3>Start from: {{ one_userstory.creation_date }}</h3>
-                        <h3>Due: {{ one_userstory.deadline }}</h3>
-                        <h3>Priority: {{ one_userstory.priority }}</h3>
-                        <h3>Relevant to: {{ one_userstory.project_name }} </h3><br>
-                    {% endfor %}
-                {% endif %}
-                <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id)}}">Edit</a>
-                <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id)}}">Delete</a>
-            </div>
-            <div class="col-2">
-                <h3>Team Leader:</h3>
-                <p>{{ team_leader[0].user_name }}</p>
-                <h3>Team Members:</h3>
+    <div class="col-8">
+        <h1>Team: <span>{{ team_details[0].team_name }}</span></h1><br>
+        {% if not userstories %}
+            <h3>No User Story Working on</h3>
+        {% else %}
+            <div class="container-fluid">
+                <div class="card mb-4">
+                    <div class="card-header"><i class="fas fa-table mr-1"></i>User stories Working on:</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Userstory</th>
+                                    <th>Priority</th>
+                                    <th>Project</th>
+                                    <th>Start Date</th>
+                                    <th>Deadline</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
+
+                                {% for userstory in userstories %}
+                                    <tr>
+                                        <td>{{ userstory.content }}</td>
+                                        <td>{{ userstory.priority }}</td>
+                                        <td>{{ userstory.project_name }}</td>
+                                        <td><span class="text-nowrap">{{ userstory.creation_date }}</span></td>
+                                        <td><span class="text-nowrap">{{ userstory.deadline }}</span></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+        {% endif %}
+
+
+        <a class="btn btn-primary" href="{{ url_for('team.team_edition', team_id=team_details[0].team_id) }}">Edit
+            Team</a>
+        <a class="btn btn-primary" href="{{ url_for('team.delete_team', team_id=team_details[0].team_id) }}">Delete
+            Team</a>
+    </div>
+    <div class="col-2">
+        <h3>Team Leader:</h3>
+        <p>{{ team_leader[0].user_name }}</p>
+        <h3>Team Members:</h3>
+        {% for team_detail in team_details %}
+            <p>Name: {{ team_detail.user_name }}<br>
+                Email:{{ team_detail.email }}</p>
+        {% endfor %}
+
+    </div>
 {% endblock %}
