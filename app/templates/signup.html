@@ -1,21 +1,61 @@
 {% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
 {% block title %} Signup {% endblock %}
 {% block content %}
-    <div class="card" style="width: 50vw;">
-        <div class="card-header">Create a new account</div>
-        <div class="card-body">
-            {% from "_formhelpers.html" import render_field %}
-            <form method=post novalidate>
-                {{ form.csrf_token }}
-                <dl>
-                    {{ render_field(form.name, class='form-control') }}
-                    {{ render_field(form.email, class='form-control') }}
-                    {{ render_field(form.password, class='form-control') }}
-                    {{ render_field(form.confirm, class='form-control') }}
-                </dl>
-                <br>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
+
+    <body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    {% from "_formhelpers.html" import render_field %}
+                                    <form class="user" method="post" novalidate>
+                                        {{ form.csrf_token }}
+                                        <dl class="form-group">
+                                            {{ render_field(form.name, class='form-control form-control-user') }}
+                                            {{ render_field(form.email, class='form-control form-control-user') }}
+                                            {{ render_field(form.password, class='form-control form-control-user') }}
+                                            {{ render_field(form.confirm, class='form-control form-control-user') }}
+                                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                                        </dl>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
+
+    </body>
 {% endblock %}
