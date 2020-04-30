@@ -96,11 +96,6 @@ def team_creation():
         new_team_form.member4.choices = user_list
         new_team_form.member5.choices = user_list
 
-        # def get_userid(userid):
-        # id = User.query.with_entities(User.user_id).filter(User.name == userid).all()
-        # user_id = id[0][0]
-        # return user_id
-
         def commit_user(team_id, user_id):
             user = TeamUserLink(team_id=team_id, user_id=user_id)
             db.session.add(user)
@@ -121,11 +116,7 @@ def team_creation():
                 db.session.commit()
                 id = Team.query.with_entities(Team.team_id).filter(Team.name == new_team_form.name.data).all()
                 team_id = id[0][0]
-                # user_id1 = get_userid(form.member1.data)
-                # user_id2 = get_userid(form.member2.data)
-                # user_id3 = get_userid(form.member3.data)
-                # user_id4 = get_userid(form.member4.data)
-                # user_id5 = get_userid(form.member5.data)
+
                 commit_user(team_id, new_team_form.member1.data)
                 commit_user(team_id, new_team_form.member2.data)
                 commit_user(team_id, new_team_form.member3.data)
