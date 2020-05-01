@@ -1,3 +1,5 @@
+# Copied from Lecture 6 of COMP0034 and edited by Group 6
+
 from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy

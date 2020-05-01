@@ -1,3 +1,5 @@
+# Copied from Lecture 6 of COMP0034 and edited by Group 6
+
 """Flask config class."""
 from os.path import dirname, abspath, join
 

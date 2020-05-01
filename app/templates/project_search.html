@@ -1,3 +1,5 @@
+<!-- Written by Student 2 Shirui Li-->
+
 {% extends "base.html" %}
 {% block title %} Project Search {% endblock %}
 {% block content%}
@@ -37,10 +39,6 @@
                         <h3>{{ project.assigned_date }}</h3>
                         <h2>Due date: </h2>
                         <h3>{{ project.due_date }}</h3>
-                        <h2>Description: </h2>
-                        <h3>{{ project.description }}</h3>
-                        <h2>Communication: </h2>
-                        <h3>{{ project.communication }}</h3>
                     </a>
                 {% endfor %}
             </div>
