@@ -1,3 +1,4 @@
+# Written by Student 2 Shirui Li
 from datetime import date
 from flask import render_template, Blueprint, request, flash, redirect, url_for, make_response
 from flask_login import current_user
